@@ -1,0 +1,15 @@
+.main__container {
+  /* border: 2px solid blue; */
+}
+
+.btn--sign-up {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
+}
+
+.login {
+  display: inline-block;
+  color: var(--accent);
+  /* color: #633fbd; */
+}

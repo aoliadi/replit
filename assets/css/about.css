@@ -1,0 +1,128 @@
+.about__container--outer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #fafafa;
+}
+
+.about__container--inner {
+}
+
+/* MAIN */
+.main__container {
+  background-color: #fff;
+  flex-flow: row wrap;
+  flex: 1 1 75%;
+  margin: 0;
+  gap: 0.85rem;
+}
+
+.main__container > *:not(:first-child) {
+  flex: 1 1 100%;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.main__heading {
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.main__about {
+  font-size: 1.5rem;
+  line-height: 50px;
+  /* border: 1px solid #000.5; */
+}
+
+.btn__con {
+  text-align: center;
+  padding: 3rem 0;
+}
+/* ASIDE */
+.aside__container {
+  flex: 1 1 25%;
+}
+
+.aside__container article {
+  padding: 0 3rem;
+  /* border: 1px solid #000; */
+}
+
+.aside__container article > * {
+}
+
+.btn--resume {
+  background-color: var(--white);
+  color: var(--black);
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.btn--resume:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.aside__list-container {
+}
+
+.aside__list-container li {
+  list-style-type: square;
+  list-style-position: inside;
+}
+
+.aside__list-container > li:first-of-type {
+  list-style-type: none;
+  margin-bottom: 1rem;
+}
+
+.hr--aside {
+  border-bottom: 1px solid var(--black);
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+@media (max-width: 850px) {
+  .about__container--inner {
+    flex-flow: column wrap;
+  }
+  /* 
+  .aside__container article > * {
+    border: 1px solid #000;
+  } */
+
+  .aside__container article {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    /* justify-content: center; */
+    width: 100%;
+    padding-top: 3rem;
+    gap: 3.5rem;
+  }
+
+  .hr--aside {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .main__container > *:not(:first-child) {
+    /* flex: 1 1 100%; */
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .main__about {
+    font-size: 1rem;
+    line-height: 40px;
+    /* border: 1px solid #000.5; */
+  }
+
+  .aside__container article {
+    justify-content: center;
+  }
+}

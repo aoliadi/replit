@@ -1,0 +1,81 @@
+:root {
+  --black: #0a1b1b;
+  --white: #fff;
+  /* --accent: #633fbd; */
+  --accent: #1da1f2;
+}
+
+* {
+  font-family: "Gentium Plus", serif;
+  /* font-size: 12px; */
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  color: var(--black);
+}
+
+body {
+  background-color: var(--white);
+  /* background-color: #eaeff2; */
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+}
+
+main {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.25rem 2.25rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.btn {
+  font-size: inherit;
+  text-transform: capitalize;
+  border: 2px solid var(--black);
+  padding: 0.65rem 2.5rem;
+  background-color: var(--black);
+  /* background-color: #633fbd; */
+  color: var(--white);
+}
+
+.btn:hover {
+  color: var(--black);
+  background-color: var(--white);
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+@media (max-width: 350px) {
+  .container {
+    padding: 1.25rem 1.5rem;
+  }
+}

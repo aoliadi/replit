@@ -1,0 +1,98 @@
+.form__container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form__header {
+  /* border: 1px solid #000; */
+  /* width: max-content; */
+  width: 100%;
+  text-align: center;
+}
+
+.form__heading {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.form__list-container {
+  margin-top: 2rem;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.form__header {
+  margin: 0 auto;
+}
+
+.form__list-item {
+  margin: 0 auto;
+  flex: 1 1 48%;
+  /* max-width: 500px; */
+  min-width: 240px;
+}
+
+.form__list-item--full {
+  flex: 1 1 100%;
+}
+
+.form__list-item--btn {
+  text-align: center;
+}
+
+.form__list-item label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  background-color: #fafafa;
+  padding: 0.5rem 1rem;
+  font-size: inherit;
+  outline: 1px solid var(--black);
+}
+
+.input:hover,
+.input:focus {
+  outline-width: 2px;
+}
+
+.form__list-item--dropdown {
+  position: relative;
+}
+
+.form__list-item--dropdown select {
+  padding: 8px 24px 8px 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form__list-item--dropdown:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 0;
+  height: 0;
+  margin-top: 12px;
+  border-top: 5px solid #aaa;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.forgot-password {
+  margin-left: auto;
+  color: var(--accent);
+}
+
+.forgot-password:hover,
+.sign-up:hover {
+  color: var(--black);
+
+  /* text-decoration: none; */
+}

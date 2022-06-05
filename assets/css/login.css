@@ -1,0 +1,35 @@
+.btn--login {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 1rem;
+}
+
+.form__list-item--check {
+  flex-flow: row wrap;
+  align-items: center;
+  font-size: 14px;
+}
+
+.form__list-item--check label {
+  margin: 0;
+  font-weight: inherit;
+}
+
+#checkbox {
+  margin-right: 5px;
+}
+
+.new-users {
+  font-size: 14px;
+  text-align: center;
+}
+
+.form__list-item {
+  max-width: 500px;
+}
+
+.sign-up {
+  display: inline-block;
+  color: var(--accent);
+  /* color: #633fbd; */
+}

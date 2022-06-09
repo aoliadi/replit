@@ -37,6 +37,10 @@ li {
   list-style-type: none;
 }
 
+input {
+  font-family: "Gentium Plus", serif;
+}
+
 main {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -55,6 +59,7 @@ main {
 }
 
 .btn {
+  font-family: "Gentium Plus", serif;
   font-size: inherit;
   text-transform: capitalize;
   border: 2px solid var(--black);

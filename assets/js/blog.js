@@ -1,0 +1,108 @@
+"use strict";
+
+// let url = "../../news.json";
+let url =
+  "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=288cb2bd396c4e1c9b8fad4aa258efbc";
+
+let newsContainer1 = document.querySelector(".main__news-container--1"),
+  newsContainer2 = document.querySelector(".main__news-container--2"),
+  newsContainer3 = document.querySelector(".main__news-container--3"),
+  topNewsContainer = document.querySelector(".top-news__container");
+
+async function getData(url) {
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
+
+function renderTopNews(theChoice) {
+  const { url, title, description, urlToImage } = theChoice;
+  topNewsContainer.parentNode.style.background = `url(${urlToImage}) top/cover no-repeat`;
+  const topNews = `
+      <div class="">
+          <h1 class="top-news__heading">
+            <a href="${url}" class="main__news-link  main__news-link--heading">
+              ${title}
+            </a>
+          </h1>
+          <p class="">
+            ${description ?? ""}
+          </p>
+        </div>
+      </div>
+  `;
+  topNewsContainer.innerHTML = topNews;
+}
+
+function renderListItems(list) {
+  const arr = [...list];
+  const rearrange = [];
+  for (let index = 0; index <= arr.length + 1; index++) {
+    const randomNumber = Math.floor(Math.random() * arr.length);
+    rearrange.push(arr[`${randomNumber}`]);
+    arr.splice(randomNumber, 1);
+  }
+  newsContainer1.innerHTML = rearrange[0].join("");
+  newsContainer2.innerHTML = rearrange[1].join("");
+  newsContainer3.innerHTML = rearrange[2].join("");
+}
+
+function divideArray(oldArr, lengthOfArr) {
+  const arr1 = [],
+    arr2 = [];
+  const maxLengthOfNewArr = Math.floor(oldArr.length / 3);
+  for (let i = 1; i <= lengthOfArr; i++) {
+    const randomNumber = Math.floor(Math.random() * oldArr.length);
+    if (arr1.length == maxLengthOfNewArr) {
+      if (arr2.length == maxLengthOfNewArr) {
+        return [oldArr, arr1, arr2];
+      } else arr2.push(oldArr[randomNumber]);
+    } else {
+      arr1.push(oldArr[randomNumber]);
+    }
+    oldArr.splice(randomNumber, 1);
+  }
+  return [oldArr, arr1, arr2];
+}
+
+getData(url).then((data) => {
+  let theData = [...data.articles];
+
+  const randomNumber = Math.floor(Math.random() * theData.length);
+
+  let topNews = theData[`${randomNumber}`];
+  theData.splice(`${randomNumber}`, 1);
+  renderTopNews(topNews);
+
+  let listItems = theData.map((item) => {
+    const theDate = new Date(`${item.publishedAt}`).toDateString();
+    return `
+      <li class="main__news-item">
+          <h5 class="main__news-item--category">
+          ${item.source.name}
+          </h5>
+          <img src="${
+            item.urlToImage
+          }" alt="" class="main__news-item--img" width="100%" height="150px">
+          <small class="main__news-item--date"> ${theDate} </small>
+          <h3 class="main__news-item--heading">
+          <a href="${
+            item.url
+          }" class="main__news-link main__news-link--heading">
+          ${item.title}
+          </a>
+          </h3>
+          <small class="main__news-item--author">
+            ${item.author ?? item.source.name ?? ""}
+          </small>
+          <p class="main__news-item--desc">
+          ${item.description ?? ""}
+          </p>
+          <a href="${item.url}" class="main__news-link">Read more</a>
+      </li>
+      `;
+  });
+
+  let newsArrays = [...divideArray(listItems, listItems.length)];
+  renderListItems(newsArrays);
+});

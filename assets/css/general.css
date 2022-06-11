@@ -37,8 +37,14 @@ li {
   list-style-type: none;
 }
 
-input {
+input,
+select,
+textarea {
   font-family: "Gentium Plus", serif;
+}
+
+small {
+  display: inline-block;
 }
 
 main {

@@ -10,12 +10,8 @@ let newsContainer1 = document.querySelector(".main__news-container--1"),
 
 async function getData(url) {
   let response = await fetch(url, {
-    mode: "cors", // no-cors, *cors, same-origin
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin",
     headers: {
-      "Content-Type": "application/json",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
+      "Content-Type": "application/x-www-form-urlencoded",
       "X-Api-Key": "288cb2bd396c4e1c9b8fad4aa258efbc",
     },
   });

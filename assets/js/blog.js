@@ -1,8 +1,7 @@
 "use strict";
 
 // let url = "../../news.json";
-let url =
-  "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=288cb2bd396c4e1c9b8fad4aa258efbc";
+let url = "https://newsapi.org/v2/top-headlines?country=us&category=business";
 
 let newsContainer1 = document.querySelector(".main__news-container--1"),
   newsContainer2 = document.querySelector(".main__news-container--2"),
@@ -10,7 +9,16 @@ let newsContainer1 = document.querySelector(".main__news-container--1"),
   topNewsContainer = document.querySelector(".top-news__container");
 
 async function getData(url) {
-  let response = await fetch(url);
+  let response = await fetch(url, {
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+      "X-Api-Key": "288cb2bd396c4e1c9b8fad4aa258efbc",
+    },
+  });
   let data = await response.json();
   return data;
 }
@@ -65,18 +73,19 @@ function divideArray(oldArr, lengthOfArr) {
   return [oldArr, arr1, arr2];
 }
 
-getData(url).then((data) => {
-  let theData = [...data.articles];
+getData(url)
+  .then((data) => {
+    let theData = [...data.articles];
 
-  const randomNumber = Math.floor(Math.random() * theData.length);
+    const randomNumber = Math.floor(Math.random() * theData.length);
 
-  let topNews = theData[`${randomNumber}`];
-  theData.splice(`${randomNumber}`, 1);
-  renderTopNews(topNews);
+    let topNews = theData[`${randomNumber}`];
+    theData.splice(`${randomNumber}`, 1);
+    renderTopNews(topNews);
 
-  let listItems = theData.map((item) => {
-    const theDate = new Date(`${item.publishedAt}`).toDateString();
-    return `
+    let listItems = theData.map((item) => {
+      const theDate = new Date(`${item.publishedAt}`).toDateString();
+      return `
       <li class="main__news-item">
           <h5 class="main__news-item--category">
           ${item.source.name}
@@ -101,8 +110,9 @@ getData(url).then((data) => {
           <a href="${item.url}" class="main__news-link">Read more</a>
       </li>
       `;
-  });
+    });
 
-  let newsArrays = [...divideArray(listItems, listItems.length)];
-  renderListItems(newsArrays);
-});
+    let newsArrays = [...divideArray(listItems, listItems.length)];
+    renderListItems(newsArrays);
+  })
+  .catch((err) => alert(err.message));

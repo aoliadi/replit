@@ -21,7 +21,9 @@ async function getData(url) {
 
 function renderTopNews(theChoice) {
   const { url, title, description, urlToImage } = theChoice;
-  topNewsContainer.parentNode.style.background = `url(${urlToImage}) top/cover no-repeat`;
+  topNewsContainer.parentNode.style.background = `url(${
+    urlToImage || `https://via.placeholder.com/300.webp`
+  }) top/cover no-repeat`;
   const topNews = `
       <div class="">
           <h1 class="top-news__heading">
@@ -87,7 +89,7 @@ getData(url)
           ${item.source.name}
           </h5>
           <img src="${
-            item.urlToImage
+            item.urlToImage || `https://via.placeholder.com/150.webp`
           }" alt="" class="main__news-item--img" width="100%" height="150px">
           <small class="main__news-item--date"> ${theDate} </small>
           <h3 class="main__news-item--heading">

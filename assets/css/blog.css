@@ -6,9 +6,6 @@
 }
 
 .top-news__wrapper {
-  /* border: 1px solid #000; */
-  /* color: var(--white); */
-  /* color: var(--white); */
   /* background: url("../img/photo.jpg") top/cover no-repeat; */
   min-height: 450px;
   height: minmax(450px, 50vh);

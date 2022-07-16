@@ -6,6 +6,7 @@
 }
 
 .top-news__wrapper {
+  /* background: url("../img/photo.jpg") top/cover no-repeat; */
   min-height: 450px;
   height: minmax(450px, 50vh);
 }

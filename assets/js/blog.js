@@ -1,9 +1,10 @@
 "use strict";
 
 // let url = "../../news.json";
-let url = "https://newsapi.org/v2/top-headlines?country=us&category=business";
+const BASE_URL =
+  "https://newsapi.org/v2/top-headlines?country=us&category=business";
 
-let newsContainer1 = document.querySelector(".main__news-container--1"),
+const newsContainer1 = document.querySelector(".main__news-container--1"),
   newsContainer2 = document.querySelector(".main__news-container--2"),
   newsContainer3 = document.querySelector(".main__news-container--3"),
   topNewsContainer = document.querySelector(".top-news__container");
@@ -71,7 +72,7 @@ function divideArray(oldArr, lengthOfArr) {
   return [oldArr, arr1, arr2];
 }
 
-getData(url)
+getData(BASE_URL)
   .then((data) => {
     let theData = [...data.articles];
 

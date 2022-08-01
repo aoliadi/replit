@@ -12,10 +12,6 @@ const newsContainer1 = document.querySelector(".main__news-container--1"),
 
 async function getData(url) {
   let response = await fetch(url);
-<<<<<<< HEAD
-=======
-  console.log(response);
->>>>>>> 7d84f33951463b5e52ec3c9044978e67d0b822bf
   let data = await response.json();
   return data;
 }

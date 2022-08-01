@@ -1,8 +1,9 @@
 "use strict";
 
 // let url = "../../news.json";
-const BASE_URL =
-  "https://newsapi.org/v2/top-headlines?country=us&category=business";
+// const BASE_URL =
+// "https://newsapi.org/v2/top-headlines?country=us&category=business";
+const BASE_URL = "https://guardian-blog.herokuapp.com/google?_limit=7";
 
 const newsContainer1 = document.querySelector(".main__news-container--1"),
   newsContainer2 = document.querySelector(".main__news-container--2"),
@@ -10,12 +11,8 @@ const newsContainer1 = document.querySelector(".main__news-container--1"),
   topNewsContainer = document.querySelector(".top-news__container");
 
 async function getData(url) {
-  let response = await fetch(url, {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "X-Api-Key": "288cb2bd396c4e1c9b8fad4aa258efbc",
-    },
-  });
+  let response = await fetch(url);
+  console.log(response);
   let data = await response.json();
   return data;
 }
@@ -74,7 +71,9 @@ function divideArray(oldArr, lengthOfArr) {
 
 getData(BASE_URL)
   .then((data) => {
-    let theData = [...data.articles];
+    // let theData = [...data.articles];
+    let theData = [...data];
+    console.log(data);
 
     const randomNumber = Math.floor(Math.random() * theData.length);
 
